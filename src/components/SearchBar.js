@@ -1,13 +1,19 @@
 import React from 'react';
-import { Grid, Search } from 'semantic-ui-react';
+import { Grid, Input, Divider } from 'semantic-ui-react';
+
+import './SearchBar.css';
 
 const SearchBar = () => {
     return (
-        <Grid centered columns={2}>
+        <Grid centered columns={3}>
             <Grid.Column>
-                <Search 
+                <Divider hidden />
+                <Input 
+                    fluid
+                    icon='search'
                     placeholder='Search...'
                 />
+                <Divider hidden />
             </Grid.Column>
         </Grid>
     );

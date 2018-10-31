@@ -8,8 +8,7 @@ const Layout = ({ children }) => {
   return (
     <Container>
       <Header>
-        <SearchBar>
-        </SearchBar>
+        <SearchBar />
       </Header>
       {children}
       <Divider />

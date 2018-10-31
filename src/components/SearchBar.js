@@ -5,7 +5,7 @@ import './SearchBar.css';
 
 const SearchBar = () => {
     return (
-        <Grid centered columns={3}>
+        <Grid centered columns={2}>
             <Grid.Column>
                 <Divider hidden />
                 <Input 

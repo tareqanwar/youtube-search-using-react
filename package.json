@@ -10,7 +10,8 @@
     "react-imported-component": "^5.0.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
-    "semantic-ui-react": "^0.83.0"
+    "semantic-ui-react": "^0.83.0",
+    "youtube-api-search": "^0.0.5"
   },
   "scripts": {
     "dev": "webpack-dev-server --env.env=dev",

@@ -2,7 +2,7 @@ import React from 'react';
 import {Card, Image} from 'semantic-ui-react';
 
 const VideoListItem = ({video, onVideoSelect}) => {
-    const imageUrl = video.snippet.thumbnails.default.url;
+    const imageUrl = video.snippet.thumbnails.medium.url;
     const title = video.snippet.title;
 
     return (

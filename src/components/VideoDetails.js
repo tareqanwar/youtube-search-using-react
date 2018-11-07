@@ -6,7 +6,7 @@ const VideoDetails = ({video}) => {
     if(!video) {
         return <Loading />
     }
-    const imageUrl = video.snippet.thumbnails.default.url;
+    const imageUrl = video.snippet.thumbnails.high.url;
 
     return (
         <Grid.Column width="10">

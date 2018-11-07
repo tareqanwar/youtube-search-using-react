@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import YTSearch from 'youtube-api-search';
+import { Header, Container, Grid, Divider, Icon } from 'semantic-ui-react';
 
 const API_KEY = 'AIzaSyBh5xn0vGLJSNaclSUm8gvEbtr2F2mJ2wY';
 
-import Layout from './Layout';
+import SearchBar from './SearchBar';
 import VideoList from './VideoList';
 import VideoDetails from './VideoDetails';
 
@@ -13,26 +14,43 @@ class App extends Component {
 
     this.state = { 
       videos: [],
-      selectedVideo: null
+      selectedVideo: null,
+      term: 'Tareq'
     };
-    
-    YTSearch({key: API_KEY, term: 'Tareq'}, videos => {
-      this.setState({ 
-        videos: videos,
-        selectedVideo: videos[0]
-      });
-    });
+
+    this.videoSearch(this.state.term);
   }
+
+  videoSearch(term) {
+    if(term) {
+      YTSearch({key: API_KEY, term: term}, videos => {
+        this.setState({ 
+          videos: videos,
+          selectedVideo: videos[0]
+        });
+      });
+    }
+  };
+
   render() {
     return (
       <div>
-        <Layout>
+        <Container>
+          <Header>
+            <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
+          </Header>
+          <Grid columns={2} divided>
               <VideoDetails video={this.state.selectedVideo} />
               <VideoList 
                 onVideoSelect={selectedVideo => this.setState({selectedVideo})}
                 videos={this.state.videos} 
               />
-        </Layout>
+          </Grid>
+          <Divider />
+          <p>
+            Made with <Icon name="heart" color="red" /> by Tareq Anwar
+          </p>
+        </Container>
       </div>
     );
   };

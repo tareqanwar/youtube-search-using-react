@@ -17,13 +17,18 @@ class SearchBar extends Component {
                         fluid
                         icon='search'
                         value={this.state.term}
-                        onChange={event => this.setState({ term: event.target.value} )}
+                        onChange={event => this.onInputChange(event.target.value)}
                         placeholder='Search...'
                     />
                     <Divider hidden />
                 </Grid.Column>
             </Grid>
         );
+    }
+
+    onInputChange(term) {
+        this.setState({term});
+        this.props.onSearchTermChange(term);
     }
 };
 

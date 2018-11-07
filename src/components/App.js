@@ -1,24 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Grid } from 'semantic-ui-react';
+import React, { Component } from 'react';
 import YTSearch from 'youtube-api-search';
 
 const API_KEY = 'AIzaSyBh5xn0vGLJSNaclSUm8gvEbtr2F2mJ2wY';
 
-YTSearch({key: API_KEY, term: 'Tareq'}, function(data) {
-  console.log(data);
-});
-
 import Layout from './Layout';
 import Loading from './Loading';
 
-const App = () => {
-  return (
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { videos: [] };
+    
+    YTSearch({key: API_KEY, term: 'Tareq'}, videos => {
+      this.setState({ videos})
+    });
+  }
+  render() {
+    return (
       <div>
         <Layout>
-        </Layout>`
+        </Layout>
       </div>
-  );
-};
+    );
+  };
+}
 
 export default App;

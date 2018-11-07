@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Item } from 'semantic-ui-react';
 
 import VideoListItem from './VideoListItem'
 
@@ -16,7 +16,9 @@ const VideoList = (props) => {
 
     return (
         <Grid.Column width="6">
-            {VideoItems}
+            <Item.Group divided unstackable>
+                {VideoItems}
+            </Item.Group>
         </Grid.Column>
     );
 }

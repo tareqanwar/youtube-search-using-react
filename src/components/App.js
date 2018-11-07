@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
-import YTSearch from 'youtube-api-search';
+import YTSearch from 'youtube-api-v3-search';
 import { Header, Container, Grid, Divider, Icon } from 'semantic-ui-react';
 
 const API_KEY = 'AIzaSyBh5xn0vGLJSNaclSUm8gvEbtr2F2mJ2wY';
@@ -16,21 +16,30 @@ class App extends Component {
     this.state = { 
       videos: [],
       selectedVideo: null,
-      term: 'Tareq'
+      term: null
     };
 
     this.videoSearch(this.state.term);
   }
 
   videoSearch(term) {
-    if(term) {
-      YTSearch({key: API_KEY, term: term}, videos => {
-        this.setState({ 
-          videos: videos,
-          selectedVideo: videos[0]
-        });
+    let options = {
+      part:'snippet',
+      type:'video'
+    };
+
+    if(term)
+      options.q = term;
+    else
+      options.chart = 'mostPopular';
+
+    YTSearch(API_KEY, options, (error, results) => {
+      console.log(results);
+      this.setState({ 
+        videos: results.items,
+        selectedVideo: results.items[0]
       });
-    }
+    });
   };
 
   render() {

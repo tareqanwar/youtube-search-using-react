@@ -34,7 +34,6 @@ class App extends Component {
       options.chart = 'mostPopular';
 
     YTSearch(API_KEY, options, (error, results) => {
-      console.log(results);
       this.setState({ 
         videos: results.items,
         selectedVideo: results.items[0]

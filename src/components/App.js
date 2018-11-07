@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import YTSearch from 'youtube-api-v3-search';
 import { Header, Container, Grid, Divider, Icon } from 'semantic-ui-react';
 
-const API_KEY = 'AIzaSyBh5xn0vGLJSNaclSUm8gvEbtr2F2mJ2wY';
+const API_KEY = process.env.YOUTUBE_API_KEY;
 
 import SearchBar from './SearchBar';
 import VideoList from './VideoList';

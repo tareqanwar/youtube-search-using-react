@@ -34,10 +34,12 @@ class App extends Component {
       options.chart = 'mostPopular';
 
     YTSearch(API_KEY, options, (error, results) => {
-      this.setState({ 
-        videos: results.items,
-        selectedVideo: results.items[0]
-      });
+      if(!error){
+        this.setState({ 
+          videos: results.items,
+          selectedVideo: results.items[0]
+        });
+      }
     });
   };
 

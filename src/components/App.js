@@ -1,27 +1,17 @@
 import React from 'react';
-import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
-import importedComponent from 'react-imported-component';
+import { Link } from 'react-router-dom';
+import { Grid } from 'semantic-ui-react';
+import YTSearch from 'youtube-api-search';
 
-import Home from './Home';
+import Layout from './Layout';
 import Loading from './Loading';
-
-const AsyncNoMatch = importedComponent(
-  () => import(/* webpackChunkName:'NoMatch' */ './NoMatch'),
-  {
-    LoadingComponent: Loading
-  }
-);
 
 const App = () => {
   return (
-    <Router>
       <div>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route component={AsyncNoMatch} />
-        </Switch>
+        <Layout>
+        </Layout>`
       </div>
-    </Router>
   );
 };
 

@@ -16,7 +16,7 @@ const VideoList = (props) => {
 
     return (
         <Grid.Column width="6">
-            <Item.Group divided unstackable>
+            <Item.Group divided unstackable link>
                 {VideoItems}
             </Item.Group>
         </Grid.Column>

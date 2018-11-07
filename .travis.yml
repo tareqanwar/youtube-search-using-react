@@ -8,9 +8,4 @@ cache:
 script:
   - yarn build
 on:
-  branch: production
-deploy:
-  provider: surge
-  project: ./dist/
-  skip_cleanup: true
-  on: production
+  branch: master
